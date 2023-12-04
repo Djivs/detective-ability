@@ -40,6 +40,10 @@ namespace bin {
             bin += QChar(static_cast<bool>(num & static_cast<int>(pow(2, i))) + '0');
         }
 
+        if (bin == "") {
+            bin = "0";
+        }
+
         return bin;
     }
 

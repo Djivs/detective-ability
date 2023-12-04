@@ -9,9 +9,9 @@ Solver::Solver() {}
 QMap <int, QVector <int>> Solver::errors_by_multiplicity() {
     QMap <int, QVector <int>> result;
 
-    const int maxError = 0b0111'1111'1111'1111;
+    const int maxError = 0b0111'1111;
 
-    for (int error = 0; error <= maxError; ++error) {
+    for (int error = 1; error <= maxError; ++error) {
         int multiplicity = 0;
 
         for (int powerOf2 = 1; powerOf2 < maxError + 1; powerOf2 *= 2) {

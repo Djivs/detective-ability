@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle("Обнаруживающая способность кода");
 
-    const int coded_information_vector = 0b1000101;
+    const int coded_information_vector = 0b0100'0101;
 
     std::unique_ptr<Solver> solver;
     errors = solver->errors_by_multiplicity();
@@ -59,8 +59,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_syndromes_clicked()
 {
-
-
     SyndromesWidget *w = new SyndromesWidget(syndromes);
     w->setAttribute(Qt::WA_DeleteOnClose, true);
 

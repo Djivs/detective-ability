@@ -39,6 +39,10 @@ void SyndromesWidget::loadDisplayData() {
         model->insertRow(i);
         model->setData(model->index(i, 0), bin::bin_string(syndrome_by_error[i].first));
         model->setData(model->index(i, 1), bin::bin_string(syndrome_by_error[i].second));
+
+        if (bin::bin_string(syndrome_by_error[i].first) == "") {
+            qDebug() << syndrome_by_error[i];
+        } 
     }
 
     ui->table_view->resizeColumnsToContents();
