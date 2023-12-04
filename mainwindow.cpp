@@ -29,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     for (auto &multiplicity : errors.keys()) {
-        qDebug() << multiplicity;
         int detected_count = 0;
         int overall_count = errors[multiplicity].count();
         for (auto &error: errors[multiplicity]) {

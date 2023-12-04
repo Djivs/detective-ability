@@ -2,6 +2,8 @@
 
 #include "binary.h"
 
+#include <QDebug>
+
 using namespace bin;
 
 Solver::Solver() {}
@@ -48,9 +50,12 @@ int Solver::impose_error(int num, int error) {
 
 int Solver::syndrome(int err, int gen) {
     if (err < gen) {
-        return err;
+        if (bitsAmount(err) == bitsAmount(gen)) {
+            return gen - err;
+        } else {
+            return err;
+        }
     }
-
     const auto err_bin_str = bin_string(err);
     int integer = 0;
     int cur = 0;
@@ -76,6 +81,10 @@ int Solver::syndrome(int err, int gen) {
 
         cur <<= 1;
         cur += static_cast<bool>(err_bin_str[err_bit_pos].toLatin1() - '0');
+    }
+
+     if (err == 0b1000) {
+        qDebug() << cur;
     }
 
     return cur;
